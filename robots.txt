@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ai-para-leigos.netlify.app/sitemap.xml
