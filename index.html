@@ -1,12 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI para Leigos · Sessão Online ao Vivo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
-      --navy:    #0f1f3d;h
+      --navy:    #0f1f3d;
       --navy-80: rgba(15,31,61,.8);
       --amber:   #f5a623;
       --amber-l: #fde9bb;
@@ -21,767 +25,141 @@
       --shadow:  0 4px 28px rgba(15,31,61,.10);
       --shadow-l:0 12px 48px rgba(15,31,61,.18);
     }
-
-    /* ─── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Sora', sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
+    body { font-family: 'Sora', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
-
-    /* ─── UTILS ──────────────────────────────────────────────── */
     .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
     .container--wide { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-
-    .tag {
-      display: inline-block;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 99px;
-      background: var(--amber-l);
-      color: #8a5e00;
-    }
-
-    .section-label {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 16px 32px;
-      border-radius: var(--radius);
-      font-family: 'Sora', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      transition: transform .18s, box-shadow .18s, opacity .18s;
-      text-align: center;
-    }
+    .tag { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 4px 12px; border-radius: 99px; background: var(--amber-l); color: #8a5e00; }
+    .section-label { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: var(--radius); font-family: 'Sora', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; border: none; transition: transform .18s, box-shadow .18s, opacity .18s; text-align: center; }
     .btn:hover { transform: translateY(-2px); }
     .btn:active { transform: translateY(0); }
-
-    .btn--primary {
-      background: var(--amber);
-      color: var(--navy);
-      box-shadow: 0 4px 20px rgba(245,166,35,.40);
-    }
+    .btn--primary { background: var(--amber); color: var(--navy); box-shadow: 0 4px 20px rgba(245,166,35,.40); }
     .btn--primary:hover { box-shadow: 0 8px 28px rgba(245,166,35,.52); }
-
-    .btn--ghost {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255,255,255,.5);
-    }
+    .btn--ghost { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.5); }
     .btn--ghost:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
-
-    .btn--ghost-dark {
-      background: transparent;
-      color: var(--navy);
-      border: 2px solid var(--navy);
-    }
+    .btn--ghost-dark { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
     .btn--ghost-dark:hover { background: var(--navy); color: var(--white); }
-
-    /* ─── NAVBAR ─────────────────────────────────────────────── */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(250,248,244,.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--gray-2);
-      padding: 14px 20px;
-    }
-    .nav__inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .nav__logo {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--navy);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .nav__logo span {
-      background: var(--amber);
-      color: var(--navy);
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-size: .85rem;
-    }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(250,248,244,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-2); padding: 14px 20px; }
+    .nav__inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav__logo { font-size: 1.05rem; font-weight: 800; color: var(--navy); display: flex; align-items: center; gap: 8px; }
+    .nav__logo span { background: var(--amber); color: var(--navy); padding: 2px 8px; border-radius: 6px; font-size: .85rem; }
     .nav__cta { font-size: .88rem; padding: 10px 22px; }
-
-    /* ─── HERO ───────────────────────────────────────────────── */
-    .hero {
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-      padding: 40px 20px 90px;
-      text-align: center;
-    }
-
-    .hero::before, .hero::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      opacity: .12;
-      pointer-events: none;
-    }
-    .hero::before {
-      width: 600px; height: 600px;
-      background: var(--amber);
-      top: -200px; left: -180px;
-    }
-    .hero::after {
-      width: 500px; height: 500px;
-      background: #4f7fff;
-      bottom: -180px; right: -120px;
-    }
-
+    .hero { background: var(--navy); position: relative; overflow: hidden; padding: 40px 20px 90px; text-align: center; }
+    .hero::before, .hero::after { content: ''; position: absolute; border-radius: 50%; opacity: .12; pointer-events: none; }
+    .hero::before { width: 600px; height: 600px; background: var(--amber); top: -200px; left: -180px; }
+    .hero::after { width: 500px; height: 500px; background: #4f7fff; bottom: -180px; right: -120px; }
     .hero__inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
-
-    .hero__tag {
-      background: var(--amber);
-      color: var(--navy);
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 99px;
-      display: inline-block;
-      margin-bottom: 28px;
-    }
-
-    .hero h1 {
-      font-family: 'Lora', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 600;
-      line-height: 1.22;
-      color: var(--white);
-      margin-bottom: 20px;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--amber);
-    }
-
-    .hero__sub {
-      font-size: clamp(1rem, 2.5vw, 1.18rem);
-      color: rgba(255,255,255,.78);
-      max-width: 580px;
-      margin: 0 auto 36px;
-      font-weight: 400;
-    }
-
-    .hero__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-      margin-bottom: 32px;
-    }
-
-    .hero__trust {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: center;
-      font-size: .82rem;
-      color: rgba(255,255,255,.60);
-    }
-    .hero__trust-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .hero__tag { background: var(--amber); color: var(--navy); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 5px 14px; border-radius: 99px; display: inline-block; margin-bottom: 28px; }
+    .hero h1 { font-family: 'Lora', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; line-height: 1.22; color: var(--white); margin-bottom: 20px; }
+    .hero h1 em { font-style: italic; color: var(--amber); }
+    .hero__sub { font-size: clamp(1rem, 2.5vw, 1.18rem); color: rgba(255,255,255,.78); max-width: 580px; margin: 0 auto 36px; font-weight: 400; }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 32px; }
+    .hero__trust { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; font-size: .82rem; color: rgba(255,255,255,.60); }
+    .hero__trust-item { display: flex; align-items: center; gap: 6px; }
     .hero__trust-item svg { opacity: .8; }
-
-    /* ─── SESSION BOX (CLICÁVEL) ──────────────────────────────── */
-    .session-box {
-      display: inline-block;
-      margin-top: 24px;
-      background: rgba(245,166,35,.15);
-      border: 1px solid rgba(245,166,35,.3);
-      border-radius: 8px;
-      padding: 12px 20px;
-      cursor: pointer;
-      transition: background .2s, border-color .2s;
-      text-decoration: none;
-    }
-    .session-box:hover {
-      background: rgba(245,166,35,.28);
-      border-color: rgba(245,166,35,.6);
-    }
-
-    /* ─── SCROLL HINT ───────────────────────────────────────── */
-    .scroll-hint {
-      margin-top: 32px;
-      display: flex;
-      justify-content: center;
-      animation: bounce 2s ease-in-out infinite;
-      color: rgba(255,255,255,.45);
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
-
-    /* ─── PROBLEM ────────────────────────────────────────────── */
-    .problem {
-      background: var(--white);
-      padding: 72px 20px;
-    }
-    .problem__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-    .problem__text h2 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
-      font-weight: 600;
-      line-height: 1.3;
-      color: var(--navy);
-      margin-bottom: 20px;
-    }
-    .problem__text p {
-      color: var(--text-s);
-      font-size: .97rem;
-      margin-bottom: 14px;
-    }
-    .problem__callout {
-      background: var(--navy);
-      border-radius: 16px;
-      padding: 36px;
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-    .problem__callout::before {
-      content: '';
-      position: absolute;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: var(--amber);
-      opacity: .12;
-      top: -60px; right: -60px;
-    }
-    .problem__callout blockquote {
-      font-family: 'Lora', serif;
-      font-size: 1.15rem;
-      font-style: italic;
-      line-height: 1.6;
-      position: relative;
-      z-index: 1;
-    }
-    .problem__callout blockquote::before {
-      content: '"';
-      font-size: 5rem;
-      line-height: .6;
-      color: var(--amber);
-      opacity: .5;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    /* ─── FOR WHOM ───────────────────────────────────────────── */
-    .forwhom {
-      background: var(--cream);
-      padding: 72px 20px;
-    }
-    .forwhom h2 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-    .forwhom__lead {
-      color: var(--text-s);
-      max-width: 560px;
-      margin-bottom: 44px;
-      font-size: .97rem;
-    }
-    .forwhom__grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 16px;
-    }
-    .persona-card {
-      background: var(--white);
-      border: 1px solid var(--gray-2);
-      border-radius: var(--radius);
-      padding: 22px 24px;
-      transition: box-shadow .2s, transform .2s;
-    }
-    .persona-card:hover {
-      box-shadow: var(--shadow);
-      transform: translateY(-3px);
-    }
-    .persona-card__icon {
-      font-size: 1.6rem;
-      margin-bottom: 12px;
-    }
-    .persona-card h3 {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .persona-card p {
-      font-size: .85rem;
-      color: var(--text-s);
-    }
-
-    /* ─── CURRICULUM ─────────────────────────────────────────── */
-    .curriculum {
-      background: var(--white);
-      padding: 72px 20px;
-    }
+    .session-box { display: inline-block; margin-top: 24px; background: rgba(245,166,35,.15); border: 1px solid rgba(245,166,35,.3); border-radius: 8px; padding: 12px 20px; cursor: pointer; transition: background .2s, border-color .2s; text-decoration: none; }
+    .session-box:hover { background: rgba(245,166,35,.28); border-color: rgba(245,166,35,.6); }
+    .problem { background: var(--white); padding: 72px 20px; }
+    .problem__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .problem__text h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 600; line-height: 1.3; color: var(--navy); margin-bottom: 20px; }
+    .problem__text p { color: var(--text-s); font-size: .97rem; margin-bottom: 14px; }
+    .problem__callout { background: var(--navy); border-radius: 16px; padding: 36px; color: var(--white); position: relative; overflow: hidden; }
+    .problem__callout::before { content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%; background: var(--amber); opacity: .12; top: -60px; right: -60px; }
+    .problem__callout blockquote { font-family: 'Lora', serif; font-size: 1.15rem; font-style: italic; line-height: 1.6; position: relative; z-index: 1; }
+    .problem__callout blockquote::before { content: '\201C'; font-size: 5rem; line-height: .6; color: var(--amber); opacity: .5; display: block; margin-bottom: 8px; }
+    .forwhom { background: var(--cream); padding: 72px 20px; }
+    .forwhom h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--navy); margin-bottom: 12px; }
+    .forwhom__lead { color: var(--text-s); max-width: 560px; margin-bottom: 44px; font-size: .97rem; }
+    .forwhom__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; }
+    .persona-card { background: var(--white); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 22px 24px; transition: box-shadow .2s, transform .2s; }
+    .persona-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .persona-card__icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .persona-card h3 { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .persona-card p { font-size: .85rem; color: var(--text-s); }
+    .curriculum { background: var(--white); padding: 72px 20px; }
     .curriculum__header { margin-bottom: 44px; }
-    .curriculum__header h2 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .curriculum__header p {
-      font-size: .97rem;
-      color: var(--text-s);
-    }
-
+    .curriculum__header h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--navy); margin-bottom: 8px; }
+    .curriculum__header p { font-size: .97rem; color: var(--text-s); }
     .curriculum__list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
-    .curriculum__item {
-      display: grid;
-      grid-template-columns: 36px 1fr;
-      gap: 16px;
-      align-items: start;
-      padding: 20px 24px;
-      border-radius: var(--radius);
-      border: 1px solid var(--gray-2);
-      background: var(--cream);
-    }
-    .curriculum__num {
-      width: 36px; height: 36px;
-      background: var(--navy);
-      color: var(--white);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .78rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
+    .curriculum__item { display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; padding: 20px 24px; border-radius: var(--radius); border: 1px solid var(--gray-2); background: var(--cream); }
+    .curriculum__num { width: 36px; height: 36px; background: var(--navy); color: var(--white); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 700; flex-shrink: 0; }
     .curriculum__body h3 { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
     .curriculum__body p { font-size: .85rem; color: var(--text-s); }
-
-    /* live badge */
-    .badge-live {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: .75rem;
-      font-weight: 700;
-      color: #c0392b;
-      background: #fde8e6;
-      padding: 4px 10px;
-      border-radius: 99px;
-      margin-top: 10px;
-    }
-    .badge-live::before {
-      content: '';
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #c0392b;
-      animation: pulse 1.4s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: .35; }
-    }
-
-    /* ─── HOW ────────────────────────────────────────────────── */
-    .how {
-      background: var(--navy);
-      padding: 72px 20px;
-      color: var(--white);
-    }
+    .badge-live { display: inline-flex; align-items: center; gap: 6px; font-size: .75rem; font-weight: 700; color: #c0392b; background: #fde8e6; padding: 4px 10px; border-radius: 99px; margin-top: 10px; }
+    .badge-live::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #c0392b; animation: pulse 1.4s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+    .how { background: var(--navy); padding: 72px 20px; color: var(--white); }
     .how__header { margin-bottom: 48px; }
-    .how__header h2 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
-      color: var(--white);
-      margin-bottom: 8px;
-    }
+    .how__header h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--white); margin-bottom: 8px; }
     .how__header p { color: rgba(255,255,255,.65); font-size: .97rem; }
-
-    /* ─── STEPS ──────────────────────────────────────────────── */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .step {
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.08);
-      padding: 28px 24px;
-      position: relative;
-      transition: background .2s;
-    }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-radius: var(--radius); overflow: hidden; }
+    .step { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); padding: 28px 24px; position: relative; transition: background .2s; }
     .step:hover { background: rgba(255,255,255,.10); }
-    .step__n {
-      font-size: 2.8rem;
-      font-weight: 800;
-      color: var(--amber);
-      opacity: .3;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
+    .step__n { font-size: 2.8rem; font-weight: 800; color: var(--amber); opacity: .3; line-height: 1; margin-bottom: 12px; }
     .step h3 { font-size: .92rem; font-weight: 700; margin-bottom: 6px; }
     .step p { font-size: .82rem; color: rgba(255,255,255,.60); }
-
-    /* ─── BENEFITS ───────────────────────────────────────────── */
-    .benefits {
-      background: var(--cream);
-      padding: 72px 20px;
-    }
-    .benefits h2 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-    .benefits__lead { color: var(--text-s); margin-bottom: 44px; font-size: .97rem; }
-    .benefits__grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 20px;
-    }
-    .benefit {
-      background: var(--white);
-      border: 1px solid var(--gray-2);
-      border-radius: var(--radius);
-      padding: 28px;
-      position: relative;
-    }
-    .benefit::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      border-radius: 0 0 var(--radius) var(--radius);
-      background: var(--amber);
-      opacity: 0;
-      transition: opacity .2s;
-    }
-    .benefit:hover::after { opacity: 1; }
-    .benefit__icon {
-      font-size: 1.8rem;
-      margin-bottom: 14px;
-    }
-    .benefit h3 {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .benefit p { font-size: .85rem; color: var(--text-s); }
-
-    /* ─── PRICING ────────────────────────────────────────────── */
-    .pricing {
-      background: var(--white);
-      padding: 72px 20px;
-    }
+    .pricing { background: var(--white); padding: 72px 20px; }
     .pricing__wrap { display: flex; justify-content: center; }
-    .pricing__card {
-      max-width: 520px;
-      width: 100%;
-      background: var(--navy);
-      border-radius: 20px;
-      padding: 48px 44px;
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-l);
-    }
-    .pricing__card::before {
-      content: '';
-      position: absolute;
-      width: 360px; height: 360px;
-      background: var(--amber);
-      opacity: .08;
-      border-radius: 50%;
-      top: -120px; right: -100px;
-    }
-    .pricing__card h2 {
-      font-family: 'Lora', serif;
-      font-size: 1.5rem;
-      color: var(--white);
-      margin-bottom: 28px;
-      position: relative;
-      z-index: 1;
-    }
-    .pricing__price {
-      font-size: 3.8rem;
-      font-weight: 800;
-      color: var(--amber);
-      line-height: 1;
-      margin-bottom: 8px;
-      position: relative;
-      z-index: 1;
-    }
-    .pricing__price sup {
-      font-size: 1.6rem;
-      vertical-align: super;
-    }
-    .pricing__note {
-      font-size: .82rem;
-      color: rgba(255,255,255,.55);
-      margin-bottom: 36px;
-      position: relative;
-      z-index: 1;
-    }
-    .pricing__features {
-      list-style: none;
-      margin-bottom: 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      position: relative;
-      z-index: 1;
-    }
-    .pricing__features li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: .9rem;
-    }
-    .pricing__features li::before {
-      content: '✓';
-      width: 20px; height: 20px;
-      background: var(--amber);
-      color: var(--navy);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .7rem;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
+    .pricing__card { max-width: 520px; width: 100%; background: var(--navy); border-radius: 20px; padding: 48px 44px; color: var(--white); position: relative; overflow: hidden; box-shadow: var(--shadow-l); }
+    .pricing__card::before { content: ''; position: absolute; width: 360px; height: 360px; background: var(--amber); opacity: .08; border-radius: 50%; top: -120px; right: -100px; }
+    .pricing__card h2 { font-family: 'Lora', serif; font-size: 1.5rem; color: var(--white); margin-bottom: 28px; position: relative; z-index: 1; }
+    .pricing__price { font-size: 3.8rem; font-weight: 800; color: var(--amber); line-height: 1; margin-bottom: 8px; position: relative; z-index: 1; }
+    .pricing__price sup { font-size: 1.6rem; vertical-align: super; }
+    .pricing__note { font-size: .82rem; color: rgba(255,255,255,.55); margin-bottom: 36px; position: relative; z-index: 1; }
+    .pricing__features { list-style: none; margin-bottom: 36px; display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; }
+    .pricing__features li { display: flex; align-items: center; gap: 10px; font-size: .9rem; }
+    .pricing__features li::before { content: '\2713'; width: 20px; height: 20px; background: var(--amber); color: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .7rem; font-weight: 800; flex-shrink: 0; }
     .pricing__cta-wrap { position: relative; z-index: 1; }
-    .pricing__cta {
-      width: 100%;
-      justify-content: center;
-      font-size: 1.05rem;
-      padding: 18px 32px;
-    }
-    .pricing__sub {
-      margin-top: 12px;
-      font-size: .78rem;
-      color: rgba(255,255,255,.45);
-      text-align: center;
-    }
-
-    /* ─── TRAINER ────────────────────────────────────────────── */
-    .trainer {
-      background: var(--cream);
-      padding: 72px 20px;
-    }
-    .trainer__grid {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-    .trainer__avatar {
-      width: 180px; height: 180px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--navy) 0%, #2d4a8a 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      flex-shrink: 0;
-    }
-    .trainer__text h2 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2rem);
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
-    .trainer__text p {
-      color: var(--text-s);
-      font-size: .97rem;
-      margin-bottom: 12px;
-    }
-    .trainer__chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
-    }
-    .chip {
-      background: var(--navy);
-      color: var(--white);
-      font-size: .76rem;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: 99px;
-    }
-
-    /* ─── FAQ ────────────────────────────────────────────────── */
-    .faq {
-      background: var(--white);
-      padding: 72px 20px;
-    }
+    .pricing__cta { width: 100%; justify-content: center; font-size: 1.05rem; padding: 18px 32px; }
+    .pricing__sub { margin-top: 12px; font-size: .78rem; color: rgba(255,255,255,.45); text-align: center; }
+    .benefits { background: var(--cream); padding: 72px 20px; }
+    .benefits h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--navy); margin-bottom: 12px; }
+    .benefits__lead { color: var(--text-s); margin-bottom: 44px; font-size: .97rem; }
+    .benefits__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .benefit { background: var(--white); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 24px; position: relative; display: flex; flex-direction: row; align-items: flex-start; gap: 18px; }
+    .benefit::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; border-radius: 0 0 var(--radius) var(--radius); background: var(--amber); opacity: 0; transition: opacity .2s; }
+    .benefit:hover::after { opacity: 1; }
+    .benefit__icon { font-size: 1.8rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+    .benefit__content { flex: 1; }
+    .benefit h3 { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .benefit p { font-size: .85rem; color: var(--text-s); }
+    .trainer { background: var(--white); padding: 72px 20px; }
+    .trainer__grid { display: grid; grid-template-columns: 180px 1fr; gap: 48px; align-items: center; }
+    .trainer__avatar { width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, var(--navy) 0%, #2d4a8a 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem; flex-shrink: 0; }
+    .trainer__text h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2rem); color: var(--navy); margin-bottom: 16px; }
+    .trainer__text p { color: var(--text-s); font-size: .97rem; margin-bottom: 12px; }
+    .trainer__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .chip { background: var(--navy); color: var(--white); font-size: .76rem; font-weight: 600; padding: 5px 12px; border-radius: 99px; }
+    .faq { background: var(--cream); padding: 72px 20px; }
     .faq__header { margin-bottom: 44px; }
-    .faq__header h2 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
+    .faq__header h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--navy); margin-bottom: 8px; }
     .faq__header p { color: var(--text-s); font-size: .97rem; }
-
     .accordion { display: flex; flex-direction: column; gap: 8px; }
-    .accordion-item {
-      border: 1px solid var(--gray-2);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .accordion-item summary {
-      list-style: none;
-      padding: 20px 24px;
-      font-weight: 600;
-      font-size: .95rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--navy);
-      user-select: none;
-      background: var(--cream);
-      transition: background .15s;
-    }
+    .accordion-item { border: 1px solid var(--gray-2); border-radius: var(--radius); overflow: hidden; }
+    .accordion-item summary { list-style: none; padding: 20px 24px; font-weight: 600; font-size: .95rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--navy); user-select: none; background: var(--cream); transition: background .15s; }
     .accordion-item summary::-webkit-details-marker { display: none; }
-    .accordion-item summary::after {
-      content: '+';
-      font-size: 1.4rem;
-      font-weight: 300;
-      color: var(--amber);
-      flex-shrink: 0;
-      margin-left: 16px;
-      transition: transform .2s;
-    }
+    .accordion-item summary::after { content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--amber); flex-shrink: 0; margin-left: 16px; transition: transform .2s; }
     .accordion-item[open] summary::after { transform: rotate(45deg); }
     .accordion-item[open] summary { background: var(--amber-l); }
-    .accordion-body {
-      padding: 0 24px 20px;
-      font-size: .9rem;
-      color: var(--text-s);
-      line-height: 1.7;
-      background: var(--amber-l);
-    }
-
-    /* ─── FINAL CTA ──────────────────────────────────────────── */
-    .final-cta {
-      background: var(--amber);
-      padding: 80px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.15);
-      top: -200px; left: -200px;
-    }
-    .final-cta::after {
-      content: '';
-      position: absolute;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.10);
-      bottom: -160px; right: -120px;
-    }
+    .accordion-body { padding: 0 24px 20px; font-size: .9rem; color: var(--text-s); line-height: 1.7; background: var(--amber-l); }
+    .final-cta { background: var(--amber); padding: 80px 20px; text-align: center; position: relative; overflow: hidden; }
+    .final-cta::before { content: ''; position: absolute; width: 500px; height: 500px; border-radius: 50%; background: rgba(255,255,255,.15); top: -200px; left: -200px; }
+    .final-cta::after { content: ''; position: absolute; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,.10); bottom: -160px; right: -120px; }
     .final-cta__inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
-    .final-cta h2 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.28;
-      margin-bottom: 16px;
-    }
-    .final-cta p {
-      font-size: 1.05rem;
-      color: rgba(15,31,61,.75);
-      margin-bottom: 36px;
-    }
-    .final-cta__btn {
-      background: var(--navy);
-      color: var(--white);
-      font-size: 1.1rem;
-      padding: 20px 44px;
-      border-radius: var(--radius);
-      font-weight: 700;
-      display: inline-block;
-      box-shadow: 0 6px 24px rgba(15,31,61,.30);
-      transition: transform .18s, box-shadow .18s;
-    }
-    .final-cta__btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(15,31,61,.38);
-    }
-    .final-cta__note {
-      margin-top: 16px;
-      font-size: .82rem;
-      color: rgba(15,31,61,.55);
-    }
-
-    /* ─── FOOTER ─────────────────────────────────────────────── */
-    .footer {
-      background: var(--navy);
-      padding: 40px 20px;
-      text-align: center;
-      color: rgba(255,255,255,.38);
-      font-size: .82rem;
-    }
+    .final-cta h2 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; color: var(--navy); line-height: 1.28; margin-bottom: 16px; }
+    .final-cta p { font-size: 1.05rem; color: rgba(15,31,61,.75); margin-bottom: 36px; }
+    .final-cta__btn { background: var(--navy); color: var(--white); font-size: 1.1rem; padding: 20px 44px; border-radius: var(--radius); font-weight: 700; display: inline-block; box-shadow: 0 6px 24px rgba(15,31,61,.30); transition: transform .18s, box-shadow .18s; }
+    .final-cta__btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(15,31,61,.38); }
+    .final-cta__note { margin-top: 16px; font-size: .82rem; color: rgba(15,31,61,.55); }
+    .scroll-hint { margin-top: 32px; display: flex; justify-content: center; animation: bounce 2s ease-in-out infinite; color: rgba(255,255,255,.45); }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+    .footer { background: var(--navy); padding: 40px 20px; text-align: center; color: rgba(255,255,255,.38); font-size: .82rem; }
     .footer a { color: rgba(255,255,255,.55); }
     .footer a:hover { color: var(--amber); }
-
-    /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 680px) {
       .problem__grid { grid-template-columns: 1fr; gap: 32px; }
       .trainer__grid { grid-template-columns: 1fr; text-align: center; }
@@ -791,32 +169,22 @@
       .hero__actions { flex-direction: column; align-items: center; }
       .btn { width: 100%; justify-content: center; }
       .pricing__card { padding: 36px 24px; }
+      .benefits__grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
-
-<!-- ═══ NAV ═══════════════════════════════════════════════════ -->
 <nav class="nav">
   <div class="nav__inner">
-    <div class="nav__logo">
-      AI <span>para Leigos</span>
-    </div>
+    <div class="nav__logo">AI <span>para Leigos</span></div>
     <a href="https://cal.com/manuel-almeida-pznm6a/ai-para-leigos-crash-course" target="_blank" class="btn btn--primary nav__cta">Reservar sem compromisso</a>
   </div>
 </nav>
-
-
-<!-- ═══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero" id="inicio">
   <div class="hero__inner">
     <div class="hero__tag">Sessão Online ao Vivo</div>
-    <h1>Aprende a usar IA em <em>1 hora</em>,<br/>sem saber nada de tecnologia</h1>
-    <p class="hero__sub">
-      O essencial para usar o ChatGPT no trabalho e na vida,
-      explicado de forma simples, prática e sem complicações.
-    </p>
+    <h1>Aprende a usar IA em <em>1 hora</em>,<br/>mesmo que não saibas o que é</h1>
+    <p class="hero__sub">O essencial para usar o ChatGPT no trabalho e na vida, explicado de forma simples, prática e sem complicações.</p>
     <div class="hero__actions">
       <a href="https://cal.com/manuel-almeida-pznm6a/ai-para-leigos-crash-course" target="_blank" class="btn btn--primary">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
@@ -826,120 +194,49 @@
     </div>
     <p style="font-size:.8rem;color:rgba(255,255,255,.50);margin-bottom:28px;">A reserva é gratuita. Recebes por email os detalhes da sessão e as opções de pagamento.</p>
     <div class="hero__trust">
-      <span class="hero__trust-item">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
-        Online ao vivo · 1 hora
-      </span>
-      <span class="hero__trust-item">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>
-        Turma pequena
-      </span>
-      <span class="hero__trust-item">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        Para iniciantes
-      </span>
-      <span class="hero__trust-item">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
-        Sem linguagem técnica
-      </span>
+      <span class="hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>Online ao vivo · 1 hora</span>
+      <span class="hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>Turma pequena</span>
+      <span class="hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Para iniciantes</span>
+      <span class="hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>Sem linguagem técnica</span>
     </div>
     <a href="https://cal.com/manuel-almeida-pznm6a/ai-para-leigos-crash-course" target="_blank" class="session-box">
-      <div>
-        <span style="color:#f5a623;font-weight:700;font-size:.9rem;">📅 Próxima sessão: sábado, 24 de maio · 10h00</span>
-      </div>
-      <div style="margin-top:10px;">
-        <span style="display:inline-block;background:rgba(220,53,69,.15);border:1px solid rgba(220,53,69,.35);border-radius:8px;padding:6px 14px;font-size:.85rem;color:#ff8080;font-weight:600;">🔴 Restam 8 lugares nesta turma</span>
-      </div>
+      <div><span style="color:#f5a623;font-weight:700;font-size:.9rem;">📅 Próxima sessão: sábado, 23 de maio · 10h00</span></div>
+      <div style="margin-top:10px;"><span style="display:inline-block;background:rgba(220,53,69,.15);border:1px solid rgba(220,53,69,.35);border-radius:8px;padding:6px 14px;font-size:.85rem;color:#ff8080;font-weight:600;">&#128308; Restam 8 lugares nesta turma</span></div>
     </a>
-    <!-- scroll indicator -->
-    <div class="scroll-hint" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-    </div>
+    <div class="scroll-hint" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></div>
   </div>
 </section>
-
-
-<!-- ═══ PROBLEM ════════════════════════════════════════════════ -->
 <section class="problem">
   <div class="container">
     <div class="problem__grid">
       <div class="problem__text">
         <div class="section-label">O problema</div>
         <h2>Ouves falar de IA todos os dias.<br/>Mas como é que isso te ajuda, na prática?</h2>
-        <p>
-          Notícias, conversas no trabalho, ferramentas novas — a IA está em todo o lado.
-          E para muitas pessoas, a sensação é a mesma: <strong>ficam de fora.</strong>
-        </p>
-        <p>
-          Não por falta de capacidade. Mas porque ninguém explicou de forma simples
-          o que é, para que serve, e como se usa no dia a dia real.
-        </p>
-        <p>
-          Este curso foi feito exatamente para isso.
-          Sem jargão técnico, sem teoria desnecessária —
-          só o que precisas para começar a usar.
-        </p>
+        <p>Notícias, conversas no trabalho, ferramentas novas — a IA está em todo o lado. E para muitas pessoas, a sensação é a mesma: <strong>ficam de fora.</strong></p>
+        <p>Não por falta de capacidade. Mas porque ninguém explicou de forma simples o que é, para que serve, e como se usa no dia a dia real.</p>
+        <p>Este curso foi feito exatamente para isso. Sem jargão técnico, sem teoria desnecessária — só o que precisas para começar a usar.</p>
       </div>
       <div class="problem__callout">
-        <blockquote>
-          Já abri o ChatGPT uma vez,
-          escrevi qualquer coisa e não
-          percebi bem o que fazer com aquilo.
-          Achei que não era para mim.
-        </blockquote>
+        <blockquote>Já abri o ChatGPT uma vez, escrevi qualquer coisa e não percebi bem o que fazer com aquilo. Achei que não era para mim.</blockquote>
         <p style="margin-top:20px;font-size:.82rem;opacity:.55;">— A experiência de muita gente. Até agora.</p>
       </div>
     </div>
   </div>
 </section>
-
-
-<!-- ═══ FOR WHOM ════════════════════════════════════════════════ -->
 <section class="forwhom" id="para-quem">
   <div class="container">
     <div class="section-label">Para quem é</div>
     <h2>Este curso é para ti se…</h2>
-    <p class="forwhom__lead">
-      Não precisas de saber nada de tecnologia. Só precisas de querer perceber
-      como esta ferramenta pode ser útil para a tua vida e o teu trabalho.
-    </p>
+    <p class="forwhom__lead">Não precisas de saber nada de tecnologia. Só precisas de querer perceber como esta ferramenta pode ser útil para a tua vida e o teu trabalho.</p>
     <div class="forwhom__grid">
-      <div class="persona-card">
-        <div class="persona-card__icon">🧑‍💼</div>
-        <h3>Profissional que quer poupar tempo</h3>
-        <p>Lidas com emails, documentos e tarefas repetitivas. A IA pode ajudar muito.</p>
-      </div>
-      <div class="persona-card">
-        <div class="persona-card__icon">🏪</div>
-        <h3>Pequeno empresário</h3>
-        <p>Queres usar IA para comunicar melhor, organizar ideias e resolver problemas do dia a dia.</p>
-      </div>
-      <div class="persona-card">
-        <div class="persona-card__icon">📚</div>
-        <h3>Professor ou formador</h3>
-        <p>Queres entender como a IA funciona para poder falar com os teus alunos com confiança.</p>
-      </div>
-      <div class="persona-card">
-        <div class="persona-card__icon">🔍</div>
-        <h3>Curioso sem base técnica</h3>
-        <p>Sabes que isto é importante mas nunca encontraste uma explicação simples e honesta.</p>
-      </div>
-      <div class="persona-card">
-        <div class="persona-card__icon">💬</div>
-        <h3>Quem já abriu o ChatGPT</h3>
-        <p>Experimentaste, mas não ficaste a saber muito mais. Já é tempo de perceber como usar mesmo.</p>
-      </div>
-          <div class="persona-card">
-            <div class="persona-card__icon">👔</div>
-            <h3>Gestor ou líder de equipa</h3>
-            <p>Queres perceber o que a IA pode fazer pela tua equipa — e como falar sobre isso com confiança.</p>
-          </div>
+      <div class="persona-card"><div class="persona-card__icon">🧑‍💼</div><h3>Profissional que quer poupar tempo</h3><p>Lidas com emails, documentos e tarefas repetitivas. A IA pode ajudar muito.</p></div>
+      <div class="persona-card"><div class="persona-card__icon">🏪</div><h3>Pequeno empresário</h3><p>Queres usar IA para comunicar melhor, organizar ideias e resolver problemas do dia a dia.</p></div>
+      <div class="persona-card"><div class="persona-card__icon">📚</div><h3>Professor ou formador</h3><p>Queres entender como a IA funciona para poder falar com os teus alunos com confiança.</p></div>
+      <div class="persona-card"><div class="persona-card__icon">🔍</div><h3>Curioso sem base técnica</h3><p>Sabes que isto é importante mas nunca encontraste uma explicação simples e honesta.</p></div>
+      <div class="persona-card"><div class="persona-card__icon">👔</div><h3>Gestor ou líder de equipa</h3><p>Queres perceber o que a IA pode fazer pela tua equipa — e como falar sobre isso com confiança.</p></div>
     </div>
   </div>
 </section>
-
-
-<!-- ═══ CURRICULUM ══════════════════════════════════════════════ -->
 <section class="curriculum" id="curriculum">
   <div class="container">
     <div class="curriculum__header">
@@ -948,48 +245,14 @@
       <p>Em 1 hora vais perceber como usar IA de forma simples, prática e segura — com exemplos que podes aplicar logo no trabalho e no dia a dia.</p>
     </div>
     <ul class="curriculum__list">
-      <li class="curriculum__item">
-        <div class="curriculum__num">1</div>
-        <div class="curriculum__body">
-          <h3>Perceber o que é a IA — sem complicar</h3>
-          <p>O que é o ChatGPT, como funciona, o que faz bem e o que faz mal. Sais desta parte sem medo e com curiosidade.</p>
-        </div>
-      </li>
-      <li class="curriculum__item">
-        <div class="curriculum__num">2</div>
-        <div class="curriculum__body">
-          <h3>Ganhar tempo em tarefas do dia a dia</h3>
-          <p>Emails, resumos, organização de ideias, preparação de reuniões — vais ver como tarefas de 30 minutos podem passar a demorar 5.</p>
-        </div>
-      </li>
-      <li class="curriculum__item">
-        <div class="curriculum__num">3</div>
-        <div class="curriculum__body">
-          <h3>Pedir melhor e obter respostas úteis</h3>
-          <p>A diferença entre uma pergunta vaga e um bom pedido. Vais aprender uma estrutura simples que muda completamente os resultados que obtens.</p>
-        </div>
-      </li>
-      <li class="curriculum__item">
-        <div class="curriculum__num">4</div>
-        <div class="curriculum__body">
-          <h3>Saber o que partilhar — e o que não partilhar</h3>
-          <p>Erros comuns, respostas inventadas, privacidade e dados sensíveis. Sais desta hora a usar IA com confiança e responsabilidade.</p>
-        </div>
-      </li>
-      <li class="curriculum__item">
-        <div class="curriculum__num">5</div>
-        <div class="curriculum__body">
-          <h3>Ver tudo ao vivo, com exemplos reais</h3>
-          <p>Demonstrações em direto com casos concretos: emails, textos, pesquisa, tomada de decisões. Contigo, no momento.</p>
-          <span class="badge-live">Em direto, contigo</span>
-        </div>
-      </li>
+      <li class="curriculum__item"><div class="curriculum__num">1</div><div class="curriculum__body"><h3>Perceber o que é a IA — sem complicar</h3><p>O que é o ChatGPT, como funciona, o que faz bem e o que faz mal. Sais desta parte sem medo e com curiosidade.</p></div></li>
+      <li class="curriculum__item"><div class="curriculum__num">2</div><div class="curriculum__body"><h3>Ganhar tempo em tarefas do dia a dia</h3><p>Emails, resumos, organização de ideias, preparação de reuniões — vais ver como tarefas de 30 minutos podem passar a demorar 5.</p></div></li>
+      <li class="curriculum__item"><div class="curriculum__num">3</div><div class="curriculum__body"><h3>Pedir melhor e obter respostas úteis</h3><p>A diferença entre uma pergunta vaga e um bom pedido. Vais aprender uma estrutura simples que muda completamente os resultados que obtens.</p></div></li>
+      <li class="curriculum__item"><div class="curriculum__num">4</div><div class="curriculum__body"><h3>Saber o que partilhar — e o que não partilhar</h3><p>Erros comuns, respostas inventadas, privacidade e dados sensíveis. Sais desta hora a usar IA com confiança e responsabilidade.</p></div></li>
+      <li class="curriculum__item"><div class="curriculum__num">5</div><div class="curriculum__body"><h3>Ver tudo ao vivo, com exemplos reais</h3><p>Demonstrações em direto com casos concretos: emails, textos, pesquisa, tomada de decisões. Contigo, no momento.</p><span class="badge-live">Em direto, contigo</span></div></li>
     </ul>
   </div>
 </section>
-
-
-<!-- ═══ HOW IT WORKS ════════════════════════════════════════════ -->
 <section class="how" id="como-funciona">
   <div class="container">
     <div class="how__header">
@@ -998,61 +261,12 @@
       <p>Não há instalações complicadas, nem processos difíceis.</p>
     </div>
     <div class="steps">
-      <div class="step">
-        <div class="step__n">1</div>
-        <h3>Escolhes a data e reservas</h3>
-        <p>Escolhes uma das sessões disponíveis e deixas o teu nome e email. Sem pagamento imediato.</p>
-      </div>
-      <div class="step">
-        <div class="step__n">2</div>
-        <h3>Recebes os detalhes por email</h3>
-        <p>Enviamos a informação sobre a sessão e as opções de pagamento para confirmares a inscrição.</p>
-      </div>
-      <div class="step">
-        <div class="step__n">3</div>
-        <h3>Pagas e recebes o acesso</h3>
-        <p>Após confirmação do pagamento, recebes o link do Google Meet para entrar na sessão.</p>
-      </div>
+      <div class="step"><div class="step__n">1</div><h3>Escolhes a data e reservas</h3><p>Escolhes uma das sessões disponíveis e deixas o teu nome e email. Sem pagamento imediato.</p></div>
+      <div class="step"><div class="step__n">2</div><h3>Recebes os detalhes por email</h3><p>Enviamos a informação sobre a sessão e as opções de pagamento para confirmares a inscrição.</p></div>
+      <div class="step"><div class="step__n">3</div><h3>Pagas e recebes o acesso</h3><p>Após confirmação do pagamento, recebes o link do Google Meet para entrar na sessão.</p></div>
     </div>
   </div>
 </section>
-
-
-<!-- ═══ BENEFITS ═══════════════════════════════════════════════ -->
-<section class="benefits" id="beneficios">
-  <div class="container">
-    <div class="section-label">O que ganhas</div>
-    <h2>O que muda depois desta hora</h2>
-    <p class="benefits__lead">
-      Uma sessão simples e prática para ganhares confiança e começares a usar IA com mais clareza no teu dia a dia.
-    </p>
-    <div class="benefits__grid">
-      <div class="benefit">
-        <div class="benefit__icon">⏱️</div>
-        <h3>Poupa tempo real</h3>
-        <p>Tarefas que te ocupam 30 minutos podem passar a demorar 5. Com as ferramentas certas.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit__icon">✍️</div>
-        <h3>Escreve melhor</h3>
-        <p>Emails, mensagens, relatórios — a IA pode ajudar-te a escrever mais rápido e com mais clareza.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit__icon">💪</div>
-        <h3>Ganhas confiança</h3>
-        <p>Deixas de sentir que a IA "não é para ti". Porque afinal é — e mais do que imaginas.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit__icon">🛡️</div>
-        <h3>Percebes os riscos</h3>
-        <p>Sabes o que partilhar, o que evitar, e como usar estas ferramentas com responsabilidade.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══ PRICING ═════════════════════════════════════════════════ -->
 <section class="pricing" id="pricing">
   <div class="container">
     <div style="text-align:center;margin-bottom:44px;">
@@ -1073,18 +287,26 @@
           <li>Acesso por Google Meet</li>
         </ul>
         <div class="pricing__cta-wrap">
-          <a href="https://cal.com/manuel-almeida-pznm6a/ai-para-leigos-crash-course" target="_blank" class="btn btn--primary pricing__cta">
-            Reservar sem compromisso
-          </a>
+          <a href="https://cal.com/manuel-almeida-pznm6a/ai-para-leigos-crash-course" target="_blank" class="btn btn--primary pricing__cta">Reservar sem compromisso</a>
           <p class="pricing__sub">A reserva é gratuita. O lugar só fica confirmado após pagamento.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
-<!-- ═══ TRAINER ══════════════════════════════════════════════════ -->
+<section class="benefits" id="beneficios">
+  <div class="container">
+    <div class="section-label">O que ganhas</div>
+    <h2>O que muda depois desta hora</h2>
+    <p class="benefits__lead">Uma sessão simples e prática para ganhares confiança e começares a usar IA com mais clareza no teu dia a dia.</p>
+    <div class="benefits__grid">
+      <div class="benefit"><div class="benefit__icon">⏱️</div><div class="benefit__content"><h3>Poupa tempo real</h3><p>Tarefas que te ocupam 30 minutos podem passar a demorar 5. Com as ferramentas certas.</p></div></div>
+      <div class="benefit"><div class="benefit__icon">✍️</div><div class="benefit__content"><h3>Escreve melhor</h3><p>Emails, mensagens, relatórios — a IA pode ajudar-te a escrever mais rápido e com mais clareza.</p></div></div>
+      <div class="benefit"><div class="benefit__icon">💪</div><div class="benefit__content"><h3>Ganhas confiança</h3><p>Deixas de sentir que a IA "não é para ti". Porque afinal é — e mais do que imaginas.</p></div></div>
+      <div class="benefit"><div class="benefit__icon">🛡️</div><div class="benefit__content"><h3>Percebes os riscos</h3><p>Sabes o que partilhar, o que evitar, e como usar estas ferramentas com responsabilidade.</p></div></div>
+    </div>
+  </div>
+</section>
 <section class="trainer" id="formador">
   <div class="container">
     <div class="trainer__grid">
@@ -1092,15 +314,8 @@
       <div class="trainer__text">
         <div class="section-label">O formador</div>
         <h2>Tecnologia explicada<br/>por quem a usa mesmo</h2>
-        <p>
-          Trabalho há mais de 20 anos em tecnologia — a criar software que pessoas reais usam
-          no dia a dia. Nos últimos anos, comecei a aplicar ferramentas de IA no meu próprio trabalho
-          e a perceber o impacto que podem ter para qualquer profissional, mesmo sem base técnica.
-        </p>
-        <p>
-          Este curso nasceu dessa experiência: explicar a IA de forma honesta, prática e sem jargão.
-          Para que quem não é técnico possa começar a usar, com confiança e sem medo.
-        </p>
+        <p>Trabalho há mais de 20 anos em tecnologia — a criar software que pessoas reais usam no dia a dia. Nos últimos anos, comecei a aplicar ferramentas de IA no meu próprio trabalho e a perceber o impacto que podem ter para qualquer profissional, mesmo sem base técnica.</p>
+        <p>Este curso nasceu dessa experiência: explicar a IA de forma honesta, prática e sem jargão. Para que quem não é técnico possa começar a usar, com confiança e sem medo.</p>
         <div class="trainer__chips">
           <span class="chip">Gestão de Produto</span>
           <span class="chip">Software B2B</span>
@@ -1111,9 +326,6 @@
     </div>
   </div>
 </section>
-
-
-<!-- ═══ FAQ ══════════════════════════════════════════════════════ -->
 <section class="faq" id="faq">
   <div class="container">
     <div class="faq__header">
@@ -1122,121 +334,34 @@
       <p>As perguntas mais comuns, respondidas de forma direta.</p>
     </div>
     <div class="accordion">
-
-      <details class="accordion-item">
-        <summary>Preciso de saber tecnologia?</summary>
-        <div class="accordion-body">
-          Não. Este curso foi feito precisamente para quem não tem background técnico.
-          Não é necessário saber programar, nem ter qualquer experiência anterior com IA.
-          Se sabes usar o email e o browser, tens tudo o que precisas.
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary>Tenho de ter conta no ChatGPT?</summary>
-        <div class="accordion-body">
-          Não é obrigatório para assistir à sessão, mas recomendamos que cries uma conta gratuita antes do curso.
-          Vamos mostrar-te como fazê-lo e como usá-la durante e depois da sessão. É simples e gratuito.
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary>A sessão fica gravada?</summary>
-        <div class="accordion-body">
-          A sessão é em direto e não é gravada. Isso faz parte da experiência —
-          turma pequena, atenção personalizada e espaço para perguntar no momento.
-          Se não puderes na data que escolheste, podes transferir para outra sessão.
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary>Posso fazer perguntas durante a sessão?</summary>
-        <div class="accordion-body">
-          Sim! A sessão é ao vivo precisamente por isso. Há espaço para perguntas ao longo
-          da sessão e no final. Com turma pequena, conseguimos responder a todos.
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary>Isto serve para o meu trabalho específico?</summary>
-        <div class="accordion-body">
-          A sessão cobre casos práticos transversais: emails, organização, pesquisa, escrita, decisões.
-          Estes temas aplicam-se à maioria das profissões. Se tiveres uma dúvida mais específica,
-          podes colocá-la durante a sessão e tentamos responder ao vivo.
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary>E se eu nunca usei IA?</summary>
-        <div class="accordion-body">
-          Ótimo — é exatamente para ti. Começamos do zero, sem assumir nenhum conhecimento anterior.
-          O objetivo é que saias desta hora a perceber o essencial e com confiança para experimentar.
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary>Como recebo o link da sessão?</summary>
-        <div class="accordion-body">
-          Após a reserva e confirmação do pagamento, recebes um email com o link para entrar na sessão.
-          Enviamos também um lembrete no dia anterior. Verifica a pasta de spam se não receberes.
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary>Tenho de pagar logo ao reservar?</summary>
-        <div class="accordion-body">
-          Não. A reserva é gratuita e sem compromisso. Depois de escolheres a sessão, recebes por email
-          os detalhes e as opções de pagamento. O lugar só fica confirmado após pagamento.
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary>A reserva garante automaticamente o meu lugar?</summary>
-        <div class="accordion-body">
-          A reserva guarda a tua vaga provisoriamente. O lugar fica confirmado apenas após pagamento.
-          Se a sessão encher, será dada prioridade às inscrições pagas.
-        </div>
-      </details>
-
-      <details class="accordion-item">
-        <summary>Posso participar pelo telemóvel ou tablet?</summary>
-        <div class="accordion-body">
-          Sim. A sessão funciona em qualquer dispositivo com acesso à internet — computador, tablet ou telemóvel.
-          Recomendamos usar o computador para uma experiência mais confortável, mas não é obrigatório.
-        </div>
-      </details>
-
+      <details class="accordion-item"><summary>Preciso de saber tecnologia?</summary><div class="accordion-body">Não. Este curso foi feito precisamente para quem não tem background técnico. Não é necessário saber programar, nem ter qualquer experiência anterior com IA. Se sabes usar o email e o browser, tens tudo o que precisas.</div></details>
+      <details class="accordion-item"><summary>Tenho de ter conta no ChatGPT?</summary><div class="accordion-body">Não é obrigatório para assistir à sessão, mas recomendamos que cries uma conta gratuita antes do curso. Vamos mostrar-te como fazê-lo e como usá-la durante e depois da sessão. É simples e gratuito.</div></details>
+      <details class="accordion-item"><summary>A sessão fica gravada?</summary><div class="accordion-body">A sessão é em direto e não é gravada. Isso faz parte da experiência — turma pequena, atenção personalizada e espaço para perguntar no momento. Se não puderes na data que escolheste, podes transferir para outra sessão.</div></details>
+      <details class="accordion-item"><summary>Posso fazer perguntas durante a sessão?</summary><div class="accordion-body">Sim! A sessão é ao vivo precisamente por isso. Há espaço para perguntas ao longo da sessão e no final. Com turma pequena, conseguimos responder a todos.</div></details>
+      <details class="accordion-item"><summary>Isto serve para o meu trabalho específico?</summary><div class="accordion-body">A sessão cobre casos práticos transversais: emails, organização, pesquisa, escrita, decisões. Estes temas aplicam-se à maioria das profissões. Se tiveres uma dúvida mais específica, podes colocá-la durante a sessão e tentamos responder ao vivo.</div></details>
+      <details class="accordion-item"><summary>E se eu nunca usei IA?</summary><div class="accordion-body">Ótimo — é exatamente para ti. Começamos do zero, sem assumir nenhum conhecimento anterior. O objetivo é que saias desta hora a perceber o essencial e com confiança para experimentar.</div></details>
+      <details class="accordion-item"><summary>Como recebo o link da sessão?</summary><div class="accordion-body">Após a reserva e confirmação do pagamento, recebes um email com o link do Google Meet. Enviamos também um lembrete no dia anterior à sessão. Verifica a pasta de spam se não receberes.</div></details>
+      <details class="accordion-item"><summary>Tenho de pagar logo ao reservar?</summary><div class="accordion-body">Não. A reserva é gratuita e sem compromisso. Depois de escolheres a sessão, recebes por email os detalhes e as opções de pagamento. O lugar só fica confirmado após pagamento.</div></details>
+      <details class="accordion-item"><summary>A reserva garante automaticamente o meu lugar?</summary><div class="accordion-body">A reserva guarda a tua vaga provisoriamente. O lugar fica confirmado apenas após pagamento. Se a sessão encher, será dada prioridade às inscrições pagas.</div></details>
+      <details class="accordion-item"><summary>Posso participar pelo telemóvel ou tablet?</summary><div class="accordion-body">Sim. A sessão funciona em qualquer dispositivo com acesso à internet — computador, tablet ou telemóvel. Recomendamos usar o computador para uma experiência mais confortável, mas não é obrigatório.</div></details>
     </div>
   </div>
 </section>
-
-
-<!-- ═══ FINAL CTA ════════════════════════════════════════════════ -->
 <section class="final-cta">
   <div class="final-cta__inner">
     <h2>Começa pelo simples.</h2>
-    <p>
-      Em 1 hora já vais perceber como usar IA de forma prática —
-      no trabalho, em casa, e no teu dia a dia.
-      Não precisas de ser técnico. Precisas só de começar.
-    </p>
+    <p>Em 1 hora já vais perceber como usar IA de forma prática — no trabalho, em casa, e no teu dia a dia. Não precisas de ser técnico. Precisas só de começar.</p>
     <a href="https://cal.com/manuel-almeida-pznm6a/ai-para-leigos-crash-course" target="_blank" class="final-cta__btn">Reservar sem compromisso →</a>
     <p class="final-cta__note">A reserva é gratuita · Online ao vivo · Turma pequena</p>
   </div>
 </section>
-
-
-<!-- ═══ FOOTER ═══════════════════════════════════════════════════ -->
 <footer class="footer">
   <div class="container">
     <p style="margin-bottom:8px;font-weight:600;color:rgba(255,255,255,.55);">AI para Leigos</p>
     <p>Dúvidas? Envia um email para <a href="mailto:aiparaleigos@gmail.com">aiparaleigos@gmail.com</a></p>
     <p style="margin-top:16px;">© 2026 AI para Leigos · Todos os direitos reservados</p>
-    <p style="margin-top:12px;font-size:.75rem;color:rgba(255,255,255,.3);max-width:600px;margin-left:auto;margin-right:auto;">
-      Os dados recolhidos através do formulário de reserva (nome e email) são utilizados exclusivamente para gestão das inscrições e comunicação relacionada com o curso. Não são partilhados com terceiros. Podes solicitar a remoção dos teus dados a qualquer momento através do email acima. Responsável pelo tratamento: Manuel Almeida.
-    </p>
+    <p style="margin-top:12px;font-size:.75rem;color:rgba(255,255,255,.3);max-width:600px;margin-left:auto;margin-right:auto;">Os dados recolhidos através do formulário de reserva (nome e email) são utilizados exclusivamente para gestão das inscrições e comunicação relacionada com o curso. Não são partilhados com terceiros. Podes solicitar a remoção dos teus dados a qualquer momento através do email acima. Responsável pelo tratamento: Manuel Almeida.</p>
   </div>
 </footer>
-
 </body>
-        </html>
+</html>
