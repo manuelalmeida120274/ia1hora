@@ -89,15 +89,11 @@
     .btn--ghost:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
     .btn--ghost-dark { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
     .btn--ghost-dark:hover { background: var(--navy); color: var(--white); }
-
-    /* NAV */
     .nav { position: sticky; top: 0; z-index: 100; background: rgba(250,248,244,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-2); padding: 14px 20px; }
     .nav__inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .nav__logo { font-size: 1.05rem; font-weight: 800; color: var(--navy); display: flex; align-items: center; gap: 8px; }
     .nav__logo span { background: var(--amber); color: var(--navy); padding: 2px 8px; border-radius: 6px; font-size: .85rem; }
     .nav__cta { font-size: .88rem; padding: 10px 22px; }
-
-    /* HERO */
     .hero { background: var(--navy); position: relative; overflow: hidden; padding: 40px 20px 90px; text-align: center; }
     .hero::before, .hero::after { content: ''; position: absolute; border-radius: 50%; opacity: .12; pointer-events: none; }
     .hero::before { width: 600px; height: 600px; background: var(--amber); top: -200px; left: -180px; }
@@ -113,8 +109,6 @@
     .hero__trust-item svg { opacity: .8; }
     .session-box { display: inline-block; margin-top: 24px; background: rgba(245,166,35,.15); border: 1px solid rgba(245,166,35,.3); border-radius: 8px; padding: 12px 20px; cursor: pointer; transition: background .2s, border-color .2s; text-decoration: none; }
     .session-box:hover { background: rgba(245,166,35,.28); border-color: rgba(245,166,35,.6); }
-
-    /* PROBLEM */
     .problem { background: var(--white); padding: 72px 20px; }
     .problem__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
     .problem__text h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 600; line-height: 1.3; color: var(--navy); margin-bottom: 20px; }
@@ -123,8 +117,6 @@
     .problem__callout::before { content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%; background: var(--amber); opacity: .12; top: -60px; right: -60px; }
     .problem__callout blockquote { font-family: 'Lora', serif; font-size: 1.15rem; font-style: italic; line-height: 1.6; position: relative; z-index: 1; }
     .problem__callout blockquote::before { content: '\201C'; font-size: 5rem; line-height: .6; color: var(--amber); opacity: .5; display: block; margin-bottom: 8px; }
-
-    /* FOR WHOM */
     .forwhom { background: var(--cream); padding: 72px 20px; }
     .forwhom h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--navy); margin-bottom: 12px; }
     .forwhom__lead { color: var(--text-s); max-width: 560px; margin-bottom: 44px; font-size: .97rem; }
@@ -134,8 +126,6 @@
     .persona-card__icon { font-size: 1.6rem; margin-bottom: 12px; }
     .persona-card h3 { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
     .persona-card p { font-size: .85rem; color: var(--text-s); }
-
-    /* CURRICULUM */
     .curriculum { background: var(--white); padding: 72px 20px; }
     .curriculum__header { margin-bottom: 44px; }
     .curriculum__header h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--navy); margin-bottom: 8px; }
@@ -148,8 +138,6 @@
     .badge-live { display: inline-flex; align-items: center; gap: 6px; font-size: .75rem; font-weight: 700; color: #c0392b; background: #fde8e6; padding: 4px 10px; border-radius: 99px; margin-top: 10px; }
     .badge-live::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #c0392b; animation: pulse 1.4s ease-in-out infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
-
-    /* HOW */
     .how { background: var(--navy); padding: 72px 20px; color: var(--white); }
     .how__header { margin-bottom: 48px; }
     .how__header h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--white); margin-bottom: 8px; }
@@ -160,8 +148,6 @@
     .step__n { font-size: 2.8rem; font-weight: 800; color: var(--amber); opacity: .3; line-height: 1; margin-bottom: 12px; }
     .step h3 { font-size: .92rem; font-weight: 700; margin-bottom: 6px; }
     .step p { font-size: .82rem; color: rgba(255,255,255,.60); }
-
-    /* PRICING */
     .pricing { background: var(--white); padding: 72px 20px; }
     .pricing__wrap { display: flex; justify-content: center; }
     .pricing__card { max-width: 520px; width: 100%; background: var(--navy); border-radius: 20px; padding: 48px 44px; color: var(--white); position: relative; overflow: hidden; box-shadow: var(--shadow-l); }
@@ -176,8 +162,6 @@
     .pricing__cta-wrap { position: relative; z-index: 1; }
     .pricing__cta { width: 100%; justify-content: center; font-size: 1.05rem; padding: 18px 32px; }
     .pricing__sub { margin-top: 12px; font-size: .78rem; color: rgba(255,255,255,.45); text-align: center; }
-
-    /* BENEFITS — horizontal cards */
     .benefits { background: var(--cream); padding: 72px 20px; }
     .benefits h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--navy); margin-bottom: 12px; }
     .benefits__lead { color: var(--text-s); margin-bottom: 44px; font-size: .97rem; }
@@ -189,8 +173,6 @@
     .benefit__content { flex: 1; }
     .benefit h3 { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
     .benefit p { font-size: .85rem; color: var(--text-s); }
-
-    /* TRAINER */
     .trainer { background: var(--white); padding: 72px 20px; }
     .trainer__grid { display: grid; grid-template-columns: 180px 1fr; gap: 48px; align-items: center; }
     .trainer__avatar { width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, var(--navy) 0%, #2d4a8a 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem; flex-shrink: 0; }
@@ -198,8 +180,6 @@
     .trainer__text p { color: var(--text-s); font-size: .97rem; margin-bottom: 12px; }
     .trainer__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
     .chip { background: var(--navy); color: var(--white); font-size: .76rem; font-weight: 600; padding: 5px 12px; border-radius: 99px; }
-
-    /* FAQ */
     .faq { background: var(--cream); padding: 72px 20px; }
     .faq__header { margin-bottom: 44px; }
     .faq__header h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--navy); margin-bottom: 8px; }
@@ -212,8 +192,6 @@
     .accordion-item[open] summary::after { transform: rotate(45deg); }
     .accordion-item[open] summary { background: var(--amber-l); }
     .accordion-body { padding: 0 24px 20px; font-size: .9rem; color: var(--text-s); line-height: 1.7; background: var(--amber-l); }
-
-    /* FINAL CTA */
     .final-cta { background: var(--amber); padding: 80px 20px; text-align: center; position: relative; overflow: hidden; }
     .final-cta::before { content: ''; position: absolute; width: 500px; height: 500px; border-radius: 50%; background: rgba(255,255,255,.15); top: -200px; left: -200px; }
     .final-cta::after { content: ''; position: absolute; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,.10); bottom: -160px; right: -120px; }
@@ -223,17 +201,11 @@
     .final-cta__btn { background: var(--navy); color: var(--white); font-size: 1.1rem; padding: 20px 44px; border-radius: var(--radius); font-weight: 700; display: inline-block; box-shadow: 0 6px 24px rgba(15,31,61,.30); transition: transform .18s, box-shadow .18s; }
     .final-cta__btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(15,31,61,.38); }
     .final-cta__note { margin-top: 16px; font-size: .82rem; color: rgba(15,31,61,.55); }
-
-    /* SCROLL HINT */
     .scroll-hint { margin-top: 32px; display: flex; justify-content: center; animation: bounce 2s ease-in-out infinite; color: rgba(255,255,255,.45); }
     @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
-
-    /* FOOTER */
     .footer { background: var(--navy); padding: 40px 20px; text-align: center; color: rgba(255,255,255,.38); font-size: .82rem; }
     .footer a { color: rgba(255,255,255,.55); }
     .footer a:hover { color: var(--amber); }
-
-    /* RESPONSIVE */
     @media (max-width: 680px) {
       .problem__grid { grid-template-columns: 1fr; gap: 32px; }
       .trainer__grid { grid-template-columns: 1fr; text-align: center; }
@@ -249,7 +221,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav__inner">
     <div class="nav__logo">
@@ -260,7 +231,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero__inner">
     <div class="hero__tag">Sessão Online ao Vivo</div>
@@ -293,7 +263,7 @@
       </span>
     </div>
     <a href="https://cal.com/manuel-almeida-pznm6a/ia1hora" target="_blank" class="session-box">
-      <div><span style="color:#f5a623;font-weight:700;font-size:.9rem;">📅 Próxima sessão: sábado, 6 de junho · 10h00</span></div>
+      <div><span style="color:#f5a623;font-weight:700;font-size:.9rem;">📅 Próxima sessão: sábado, 27 de junho · 10h00</span></div>
       <div style="margin-top:10px;"><span style="display:inline-block;background:rgba(220,53,69,.15);border:1px solid rgba(220,53,69,.35);border-radius:8px;padding:6px 14px;font-size:.85rem;color:#ff8080;font-weight:600;">&#128308; Restam 8 lugares nesta turma</span></div>
     </a>
     <div class="scroll-hint" aria-hidden="true">
@@ -302,7 +272,6 @@
   </div>
 </section>
 
-<!-- PROBLEM -->
 <section class="problem">
   <div class="container">
     <div class="problem__grid">
@@ -321,43 +290,21 @@
   </div>
 </section>
 
-<!-- FOR WHOM -->
 <section class="forwhom" id="para-quem">
   <div class="container">
     <div class="section-label">Para quem é</div>
     <h2>Este curso é para ti se…</h2>
     <p class="forwhom__lead">Não precisas de saber nada de tecnologia. Só precisas de querer perceber como esta ferramenta pode ser útil para a tua vida e o teu trabalho.</p>
     <div class="forwhom__grid">
-      <div class="persona-card">
-        <div class="persona-card__icon">🧑‍💼</div>
-        <h3>Profissional que quer poupar tempo</h3>
-        <p>Lidas com emails, documentos e tarefas repetitivas. A IA pode ajudar muito.</p>
-      </div>
-      <div class="persona-card">
-        <div class="persona-card__icon">🏪</div>
-        <h3>Pequeno empresário</h3>
-        <p>Queres usar IA para comunicar melhor, organizar ideias e resolver problemas do dia a dia.</p>
-      </div>
-      <div class="persona-card">
-        <div class="persona-card__icon">📚</div>
-        <h3>Professor ou formador</h3>
-        <p>Queres entender como a IA funciona para poder falar com os teus alunos com confiança.</p>
-      </div>
-      <div class="persona-card">
-        <div class="persona-card__icon">🔍</div>
-        <h3>Curioso sem base técnica</h3>
-        <p>Sabes que isto é importante mas nunca encontraste uma explicação simples e honesta.</p>
-      </div>
-      <div class="persona-card">
-        <div class="persona-card__icon">👔</div>
-        <h3>Gestor ou líder de equipa</h3>
-        <p>Queres perceber o que a IA pode fazer pela tua equipa — e como falar sobre isso com confiança.</p>
-      </div>
+      <div class="persona-card"><div class="persona-card__icon">🧑‍💼</div><h3>Profissional que quer poupar tempo</h3><p>Lidas com emails, documentos e tarefas repetitivas. A IA pode ajudar muito.</p></div>
+      <div class="persona-card"><div class="persona-card__icon">🏪</div><h3>Pequeno empresário</h3><p>Queres usar IA para comunicar melhor, organizar ideias e resolver problemas do dia a dia.</p></div>
+      <div class="persona-card"><div class="persona-card__icon">📚</div><h3>Professor ou formador</h3><p>Queres entender como a IA funciona para poder falar com os teus alunos com confiança.</p></div>
+      <div class="persona-card"><div class="persona-card__icon">🔍</div><h3>Curioso sem base técnica</h3><p>Sabes que isto é importante mas nunca encontraste uma explicação simples e honesta.</p></div>
+      <div class="persona-card"><div class="persona-card__icon">👔</div><h3>Gestor ou líder de equipa</h3><p>Queres perceber o que a IA pode fazer pela tua equipa — e como falar sobre isso com confiança.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CURRICULUM -->
 <section class="curriculum" id="curriculum">
   <div class="container">
     <div class="curriculum__header">
@@ -366,47 +313,15 @@
       <p>Em 1 hora vais perceber como usar IA de forma simples, prática e segura — com exemplos que podes aplicar logo no trabalho e no dia a dia.</p>
     </div>
     <ul class="curriculum__list">
-      <li class="curriculum__item">
-        <div class="curriculum__num">1</div>
-        <div class="curriculum__body">
-          <h3>Perceber o que é a IA — sem complicar</h3>
-          <p>O que é o ChatGPT, como funciona, o que faz bem e o que faz mal. Sais desta parte sem medo e com curiosidade.</p>
-        </div>
-      </li>
-      <li class="curriculum__item">
-        <div class="curriculum__num">2</div>
-        <div class="curriculum__body">
-          <h3>Ganhar tempo em tarefas do dia a dia</h3>
-          <p>Emails, resumos, organização de ideias, preparação de reuniões — vais ver como tarefas de 30 minutos podem passar a demorar 5.</p>
-        </div>
-      </li>
-      <li class="curriculum__item">
-        <div class="curriculum__num">3</div>
-        <div class="curriculum__body">
-          <h3>Pedir melhor e obter respostas úteis</h3>
-          <p>A diferença entre uma pergunta vaga e um bom pedido. Vais aprender uma estrutura simples que muda completamente os resultados que obtens.</p>
-        </div>
-      </li>
-      <li class="curriculum__item">
-        <div class="curriculum__num">4</div>
-        <div class="curriculum__body">
-          <h3>Saber o que partilhar — e o que não partilhar</h3>
-          <p>Erros comuns, respostas inventadas, privacidade e dados sensíveis. Sais desta hora a usar IA com confiança e responsabilidade.</p>
-        </div>
-      </li>
-      <li class="curriculum__item">
-        <div class="curriculum__num">5</div>
-        <div class="curriculum__body">
-          <h3>Ver tudo ao vivo, com exemplos reais</h3>
-          <p>Demonstrações em direto com casos concretos: emails, textos, pesquisa, tomada de decisões. Contigo, no momento.</p>
-          <span class="badge-live">Em direto, contigo</span>
-        </div>
-      </li>
+      <li class="curriculum__item"><div class="curriculum__num">1</div><div class="curriculum__body"><h3>Perceber o que é a IA — sem complicar</h3><p>O que é o ChatGPT, como funciona, o que faz bem e o que faz mal. Sais desta parte sem medo e com curiosidade.</p></div></li>
+      <li class="curriculum__item"><div class="curriculum__num">2</div><div class="curriculum__body"><h3>Ganhar tempo em tarefas do dia a dia</h3><p>Emails, resumos, organização de ideias, preparação de reuniões — vais ver como tarefas de 30 minutos podem passar a demorar 5.</p></div></li>
+      <li class="curriculum__item"><div class="curriculum__num">3</div><div class="curriculum__body"><h3>Pedir melhor e obter respostas úteis</h3><p>A diferença entre uma pergunta vaga e um bom pedido. Vais aprender uma estrutura simples que muda completamente os resultados que obtens.</p></div></li>
+      <li class="curriculum__item"><div class="curriculum__num">4</div><div class="curriculum__body"><h3>Saber o que partilhar — e o que não partilhar</h3><p>Erros comuns, respostas inventadas, privacidade e dados sensíveis. Sais desta hora a usar IA com confiança e responsabilidade.</p></div></li>
+      <li class="curriculum__item"><div class="curriculum__num">5</div><div class="curriculum__body"><h3>Ver tudo ao vivo, com exemplos reais</h3><p>Demonstrações em direto com casos concretos: emails, textos, pesquisa, tomada de decisões. Contigo, no momento.</p><span class="badge-live">Em direto, contigo</span></div></li>
     </ul>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section class="how" id="como-funciona">
   <div class="container">
     <div class="how__header">
@@ -415,26 +330,13 @@
       <p>Não há instalações complicadas, nem processos difíceis.</p>
     </div>
     <div class="steps">
-      <div class="step">
-        <div class="step__n">1</div>
-        <h3>Escolhes a data e reservas</h3>
-        <p>Escolhes uma das sessões disponíveis e deixas o teu nome e email. Sem pagamento imediato.</p>
-      </div>
-      <div class="step">
-        <div class="step__n">2</div>
-        <h3>Recebes os detalhes por email</h3>
-        <p>Enviamos a informação sobre a sessão e as opções de pagamento para confirmares a inscrição.</p>
-      </div>
-      <div class="step">
-        <div class="step__n">3</div>
-        <h3>Pagas e recebes o acesso</h3>
-        <p>Após confirmação do pagamento, recebes o link do Google Meet para entrar na sessão.</p>
-      </div>
+      <div class="step"><div class="step__n">1</div><h3>Escolhes a data e reservas</h3><p>Escolhes uma das sessões disponíveis e deixas o teu nome e email. Sem pagamento imediato.</p></div>
+      <div class="step"><div class="step__n">2</div><h3>Recebes os detalhes por email</h3><p>Enviamos a informação sobre a sessão e as opções de pagamento para confirmares a inscrição.</p></div>
+      <div class="step"><div class="step__n">3</div><h3>Pagas e recebes o acesso</h3><p>Após confirmação do pagamento, recebes o link do Google Meet para entrar na sessão.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PRICING — moved up, before benefits -->
 <section class="pricing" id="pricing">
   <div class="container">
     <div style="text-align:center;margin-bottom:44px;">
@@ -463,46 +365,20 @@
   </div>
 </section>
 
-<!-- BENEFITS — horizontal cards -->
 <section class="benefits" id="beneficios">
   <div class="container">
     <div class="section-label">O que ganhas</div>
     <h2>O que muda depois desta hora</h2>
     <p class="benefits__lead">Uma sessão simples e prática para ganhares confiança e começares a usar IA com mais clareza no teu dia a dia.</p>
     <div class="benefits__grid">
-      <div class="benefit">
-        <div class="benefit__icon">⏱️</div>
-        <div class="benefit__content">
-          <h3>Poupa tempo real</h3>
-          <p>Tarefas que te ocupam 30 minutos podem passar a demorar 5. Com as ferramentas certas.</p>
-        </div>
-      </div>
-      <div class="benefit">
-        <div class="benefit__icon">✍️</div>
-        <div class="benefit__content">
-          <h3>Escreve melhor</h3>
-          <p>Emails, mensagens, relatórios — a IA pode ajudar-te a escrever mais rápido e com mais clareza.</p>
-        </div>
-      </div>
-      <div class="benefit">
-        <div class="benefit__icon">💪</div>
-        <div class="benefit__content">
-          <h3>Ganhas confiança</h3>
-          <p>Deixas de sentir que a IA "não é para ti". Porque afinal é — e mais do que imaginas.</p>
-        </div>
-      </div>
-      <div class="benefit">
-        <div class="benefit__icon">🛡️</div>
-        <div class="benefit__content">
-          <h3>Percebes os riscos</h3>
-          <p>Sabes o que partilhar, o que evitar, e como usar estas ferramentas com responsabilidade.</p>
-        </div>
-      </div>
+      <div class="benefit"><div class="benefit__icon">⏱️</div><div class="benefit__content"><h3>Poupa tempo real</h3><p>Tarefas que te ocupam 30 minutos podem passar a demorar 5. Com as ferramentas certas.</p></div></div>
+      <div class="benefit"><div class="benefit__icon">✍️</div><div class="benefit__content"><h3>Escreve melhor</h3><p>Emails, mensagens, relatórios — a IA pode ajudar-te a escrever mais rápido e com mais clareza.</p></div></div>
+      <div class="benefit"><div class="benefit__icon">💪</div><div class="benefit__content"><h3>Ganhas confiança</h3><p>Deixas de sentir que a IA "não é para ti". Porque afinal é — e mais do que imaginas.</p></div></div>
+      <div class="benefit"><div class="benefit__icon">🛡️</div><div class="benefit__content"><h3>Percebes os riscos</h3><p>Sabes o que partilhar, o que evitar, e como usar estas ferramentas com responsabilidade.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- TRAINER -->
 <section class="trainer" id="formador">
   <div class="container">
     <div class="trainer__grid">
@@ -523,7 +399,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="faq" id="faq">
   <div class="container">
     <div class="faq__header">
@@ -532,51 +407,20 @@
       <p>As perguntas mais comuns, respondidas de forma direta.</p>
     </div>
     <div class="accordion">
-      <details class="accordion-item">
-        <summary>Preciso de saber tecnologia?</summary>
-        <div class="accordion-body">Não. Este curso foi feito precisamente para quem não tem background técnico. Não é necessário saber programar, nem ter qualquer experiência anterior com IA. Se sabes usar o email e o browser, tens tudo o que precisas.</div>
-      </details>
-      <details class="accordion-item">
-        <summary>Tenho de ter conta no ChatGPT?</summary>
-        <div class="accordion-body">Não é obrigatório para assistir à sessão, mas recomendamos que cries uma conta gratuita antes do curso. Vamos mostrar-te como fazê-lo e como usá-la durante e depois da sessão. É simples e gratuito.</div>
-      </details>
-      <details class="accordion-item">
-        <summary>A sessão fica gravada?</summary>
-        <div class="accordion-body">A sessão é em direto e não é gravada. Isso faz parte da experiência — turma pequena, atenção personalizada e espaço para perguntar no momento. Se não puderes na data que escolheste, podes transferir para outra sessão.</div>
-      </details>
-      <details class="accordion-item">
-        <summary>Posso fazer perguntas durante a sessão?</summary>
-        <div class="accordion-body">Sim! A sessão é ao vivo precisamente por isso. Há espaço para perguntas ao longo da sessão e no final. Com turma pequena, conseguimos responder a todos.</div>
-      </details>
-      <details class="accordion-item">
-        <summary>Isto serve para o meu trabalho específico?</summary>
-        <div class="accordion-body">A sessão cobre casos práticos transversais: emails, organização, pesquisa, escrita, decisões. Estes temas aplicam-se à maioria das profissões. Se tiveres uma dúvida mais específica, podes colocá-la durante a sessão e tentamos responder ao vivo.</div>
-      </details>
-      <details class="accordion-item">
-        <summary>E se eu nunca usei IA?</summary>
-        <div class="accordion-body">Ótimo — é exatamente para ti. Começamos do zero, sem assumir nenhum conhecimento anterior. O objetivo é que saias desta hora a perceber o essencial e com confiança para experimentar.</div>
-      </details>
-      <details class="accordion-item">
-        <summary>Como recebo o link da sessão?</summary>
-        <div class="accordion-body">Após a reserva e confirmação do pagamento, recebes um email com o link do Google Meet. Enviamos também um lembrete no dia anterior à sessão. Verifica a pasta de spam se não receberes.</div>
-      </details>
-      <details class="accordion-item">
-        <summary>Tenho de pagar logo ao reservar?</summary>
-        <div class="accordion-body">Não. A reserva é gratuita e sem compromisso. Depois de escolheres a sessão, recebes por email os detalhes e as opções de pagamento. O lugar só fica confirmado após pagamento.</div>
-      </details>
-      <details class="accordion-item">
-        <summary>A reserva garante automaticamente o meu lugar?</summary>
-        <div class="accordion-body">A reserva guarda a tua vaga provisoriamente. O lugar fica confirmado apenas após pagamento. Se a sessão encher, será dada prioridade às inscrições pagas.</div>
-      </details>
-      <details class="accordion-item">
-        <summary>Posso participar pelo telemóvel ou tablet?</summary>
-        <div class="accordion-body">Sim. A sessão funciona em qualquer dispositivo com acesso à internet — computador, tablet ou telemóvel. Recomendamos usar o computador para uma experiência mais confortável, mas não é obrigatório.</div>
-      </details>
+      <details class="accordion-item"><summary>Preciso de saber tecnologia?</summary><div class="accordion-body">Não. Este curso foi feito precisamente para quem não tem background técnico. Não é necessário saber programar, nem ter qualquer experiência anterior com IA. Se sabes usar o email e o browser, tens tudo o que precisas.</div></details>
+      <details class="accordion-item"><summary>Tenho de ter conta no ChatGPT?</summary><div class="accordion-body">Não é obrigatório para assistir à sessão, mas recomendamos que cries uma conta gratuita antes do curso. Vamos mostrar-te como fazê-lo e como usá-la durante e depois da sessão. É simples e gratuito.</div></details>
+      <details class="accordion-item"><summary>A sessão fica gravada?</summary><div class="accordion-body">A sessão é em direto e não é gravada. Isso faz parte da experiência — turma pequena, atenção personalizada e espaço para perguntar no momento. Se não puderes na data que escolheste, podes transferir para outra sessão.</div></details>
+      <details class="accordion-item"><summary>Posso fazer perguntas durante a sessão?</summary><div class="accordion-body">Sim! A sessão é ao vivo precisamente por isso. Há espaço para perguntas ao longo da sessão e no final. Com turma pequena, conseguimos responder a todos.</div></details>
+      <details class="accordion-item"><summary>Isto serve para o meu trabalho específico?</summary><div class="accordion-body">A sessão cobre casos práticos transversais: emails, organização, pesquisa, escrita, decisões. Estes temas aplicam-se à maioria das profissões. Se tiveres uma dúvida mais específica, podes colocá-la durante a sessão e tentamos responder ao vivo.</div></details>
+      <details class="accordion-item"><summary>E se eu nunca usei IA?</summary><div class="accordion-body">Ótimo — é exatamente para ti. Começamos do zero, sem assumir nenhum conhecimento anterior. O objetivo é que saias desta hora a perceber o essencial e com confiança para experimentar.</div></details>
+      <details class="accordion-item"><summary>Como recebo o link da sessão?</summary><div class="accordion-body">Após a reserva e confirmação do pagamento, recebes um email com o link do Google Meet. Enviamos também um lembrete no dia anterior à sessão. Verifica a pasta de spam se não receberes.</div></details>
+      <details class="accordion-item"><summary>Tenho de pagar logo ao reservar?</summary><div class="accordion-body">Não. A reserva é gratuita e sem compromisso. Depois de escolheres a sessão, recebes por email os detalhes e as opções de pagamento. O lugar só fica confirmado após pagamento.</div></details>
+      <details class="accordion-item"><summary>A reserva garante automaticamente o meu lugar?</summary><div class="accordion-body">A reserva guarda a tua vaga provisoriamente. O lugar fica confirmado apenas após pagamento. Se a sessão encher, será dada prioridade às inscrições pagas.</div></details>
+      <details class="accordion-item"><summary>Posso participar pelo telemóvel ou tablet?</summary><div class="accordion-body">Sim. A sessão funciona em qualquer dispositivo com acesso à internet — computador, tablet ou telemóvel. Recomendamos usar o computador para uma experiência mais confortável, mas não é obrigatório.</div></details>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
 <section class="final-cta">
   <div class="final-cta__inner">
     <h2>Começa pelo simples.</h2>
@@ -586,28 +430,18 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer" id="legal">
   <div class="container">
-
-    <!-- Identificação -->
     <div style="display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:20px;">
       <img src="./logo.png" alt="IA em 1 Hora" style="height:40px;width:40px;border-radius:8px;opacity:.85;" />
       <span style="font-weight:700;font-size:1.05rem;color:rgba(255,255,255,.85);">IA em 1 Hora</span>
     </div>
-
     <p style="margin-bottom:6px;">Responsável: <strong>Manuel Almeida</strong></p>
     <p style="margin-bottom:6px;">Atividade: Formação prática em Inteligência Artificial para não técnicos</p>
     <p style="margin-bottom:20px;">Contacto: <a href="mailto:aiprofpt@gmail.com" style="color:var(--amber);">aiprofpt@gmail.com</a></p>
-
-    <!-- Acordeão legal -->
     <div style="max-width:680px;margin:0 auto 28px;text-align:left;">
-
       <details style="border-top:1px solid rgba(255,255,255,.12);padding:14px 0;">
-        <summary style="cursor:pointer;font-weight:600;color:rgba(255,255,255,.75);list-style:none;display:flex;justify-content:space-between;align-items:center;">
-          Termos e Condições
-          <span style="font-size:.8rem;opacity:.5;">▾</span>
-        </summary>
+        <summary style="cursor:pointer;font-weight:600;color:rgba(255,255,255,.75);list-style:none;display:flex;justify-content:space-between;align-items:center;">Termos e Condições<span style="font-size:.8rem;opacity:.5;">▾</span></summary>
         <div style="margin-top:12px;font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;">
           <p style="margin-bottom:8px;">O serviço "IA em 1 Hora" consiste numa sessão formativa online ao vivo, com duração aproximada de 1 hora, conduzida por Manuel Almeida.</p>
           <p style="margin-bottom:8px;"><strong style="color:rgba(255,255,255,.6);">Reserva:</strong> A reserva é gratuita e não vinculativa. O lugar fica confirmado apenas após receção do pagamento.</p>
@@ -617,30 +451,18 @@
           <p>O formador reserva-se o direito de reagendar ou cancelar uma sessão em caso de circunstâncias imprevistas, com aviso prévio e reagendamento sem custo ou reembolso total.</p>
         </div>
       </details>
-
       <details style="border-top:1px solid rgba(255,255,255,.12);padding:14px 0;">
-        <summary style="cursor:pointer;font-weight:600;color:rgba(255,255,255,.75);list-style:none;display:flex;justify-content:space-between;align-items:center;">
-          Política de Cancelamento e Reembolso
-          <span style="font-size:.8rem;opacity:.5;">▾</span>
-        </summary>
+        <summary style="cursor:pointer;font-weight:600;color:rgba(255,255,255,.75);list-style:none;display:flex;justify-content:space-between;align-items:center;">Política de Cancelamento e Reembolso<span style="font-size:.8rem;opacity:.5;">▾</span></summary>
         <div style="margin-top:12px;font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;">
           <p style="margin-bottom:8px;"><strong style="color:rgba(255,255,255,.6);">Cancelamento pelo participante:</strong></p>
-          <ul style="margin-left:16px;margin-bottom:8px;">
-            <li>Com mais de 48h de antecedência: reembolso total.</li>
-            <li>Entre 24h e 48h: crédito para outra sessão (sem reembolso monetário).</li>
-            <li>Menos de 24h: sem reembolso nem crédito.</li>
-          </ul>
+          <ul style="margin-left:16px;margin-bottom:8px;"><li>Com mais de 48h de antecedência: reembolso total.</li><li>Entre 24h e 48h: crédito para outra sessão (sem reembolso monetário).</li><li>Menos de 24h: sem reembolso nem crédito.</li></ul>
           <p style="margin-bottom:8px;"><strong style="color:rgba(255,255,255,.6);">Cancelamento pelo formador:</strong> Reembolso total ou reagendamento, à escolha do participante.</p>
           <p style="margin-bottom:8px;">Para solicitar cancelamento ou reembolso, envia email para <a href="mailto:aiprofpt@gmail.com" style="color:var(--amber);">aiprofpt@gmail.com</a> com o assunto "Cancelamento — IA em 1 Hora".</p>
           <p style="font-size:.78rem;opacity:.6;">Nota: Esta política é aplicável a compras diretas. Compras realizadas através de plataformas de terceiros estão sujeitas às políticas dessas plataformas.</p>
         </div>
       </details>
-
       <details style="border-top:1px solid rgba(255,255,255,.12);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);">
-        <summary style="cursor:pointer;font-weight:600;color:rgba(255,255,255,.75);list-style:none;display:flex;justify-content:space-between;align-items:center;">
-          Política de Privacidade
-          <span style="font-size:.8rem;opacity:.5;">▾</span>
-        </summary>
+        <summary style="cursor:pointer;font-weight:600;color:rgba(255,255,255,.75);list-style:none;display:flex;justify-content:space-between;align-items:center;">Política de Privacidade<span style="font-size:.8rem;opacity:.5;">▾</span></summary>
         <div style="margin-top:12px;font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;">
           <p style="margin-bottom:8px;"><strong style="color:rgba(255,255,255,.6);">Responsável pelo tratamento:</strong> Manuel Almeida · aiprofpt@gmail.com</p>
           <p style="margin-bottom:8px;"><strong style="color:rgba(255,255,255,.6);">Dados recolhidos:</strong> Nome e endereço de email, fornecidos no momento da reserva.</p>
@@ -650,9 +472,7 @@
           <p><strong style="color:rgba(255,255,255,.6);">Direitos:</strong> Tens direito de acesso, retificação, apagamento e oposição ao tratamento dos teus dados. Para exercer estes direitos, envia email para <a href="mailto:aiprofpt@gmail.com" style="color:var(--amber);">aiprofpt@gmail.com</a>.</p>
         </div>
       </details>
-
     </div>
-
     <p style="margin-top:8px;">© 2026 IA em 1 Hora · Manuel Almeida · Todos os direitos reservados</p>
   </div>
 </footer>
